@@ -1,3 +1,22 @@
 body{
   background-color: aqua;
 }
+
+.card{
+  justify-content: center;
+}
+
+.animalCards{
+  text-align: center;
+}
+
+header{
+  border-style: inset;
+}
+.card-img-top{
+  border-style:outset;
+}
+
+footer{
+  background-color:pink ;
+}
