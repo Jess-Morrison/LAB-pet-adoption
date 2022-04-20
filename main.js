@@ -219,21 +219,34 @@ const pets = [
     for(const animals of pets ) {
         domString += `<div class="card" style="width: 18rem;">
         <header>
-        <h2>Name</h2>
+        <h2>${animals.name}</h2>
        </header>
        <img src="${animals.imageUrl}" class="card-img-top" alt="Photos of Animals"/>
        <div class="card-body">
          <div class="animal-color">${animals.color}</div>
-         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+         <p class="card-text">${animals.specialSkill}</p>
         
        </div>
        <footer>${animals.type}</footer>
      </div> `; }
     
+ createPage.innerHTML += domString
 
-    createPage.innerHTML += domString
+let buttons = {
+  catButton: "cat-btn",
+  dogButton:"dog-btn",
+  dinoButton:"dino-btn",
+}
 
+// let mainButtons = document.getElementById(buttons);
 
+const grabAnimal = (e) => {
+  return `${animals.type}`;
+}
+
+buttons.addEventListener('click',() => {
+  console.log('clicked the button!');
+})
 
 
 
