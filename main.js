@@ -210,3 +210,31 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
+
+  
+  const createPage = document.querySelector("#content");
+  let domString= " ";
+
+
+    for(const animals of pets ) {
+        domString += `<div class="card" style="width: 18rem;">
+        <header>
+        <h2>Name</h2>
+       </header>
+       <img src="${animals.imageUrl}" class="card-img-top" alt="Photos of Animals"/>
+       <div class="card-body">
+         <div class="animal-color">${animals.color}</div>
+         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        
+       </div>
+       <footer>${animals.type}</footer>
+     </div> `; }
+    
+
+    createPage.innerHTML += domString
+
+
+
+
+
+    
