@@ -212,11 +212,17 @@ const pets = [
   ];
 
   
-  const createPage = document.querySelector("#content");
-  let domString= " ";
+  // Utility Function
+  const renderToDom = (divId,textToDom)  =>{
+    const selectedElement = document.querySelector(divId);
+    selectedElement.innerHTML= textToDom;
 
-
-    for(const animals of pets ) {
+  }
+  
+// Add cards to DOM 
+   const cardsToDom = (array) => {
+    let domString= " ";
+    for(const animals of array ) {
         domString += `<div class="card" style="width: 18rem;">
         <header>
         <h2>${animals.name}</h2>
@@ -228,26 +234,52 @@ const pets = [
         
        </div>
        <footer>${animals.type}</footer>
-     </div> `; }
+     </div> `; 
     
- createPage.innerHTML += domString
+ renderToDom('#content',domString);
 
-let buttons = {
-  catButton: "cat-btn",
-  dogButton:"dog-btn",
-  dinoButton:"dino-btn",
-}
 
-// let mainButtons = document.getElementById(buttons);
+//  Filter buttons 
 
-const grabAnimal = (e) => {
-  return `${animals.type}`;
-}
-
-buttons.addEventListener('click',() => {
-  console.log('clicked the button!');
-})
-
+const filterButtons = [
+  {
+  catButton: "cat-btn"},
+  {
+  dogButton:"dog-btn"},
+  {
+  dinoButton:"dino-btn"
+}]
 
 
     
+}
+  }
+
+  // console.log (myFunction())
+
+
+// catButton.addEventListener('click',() => {
+//   console.log('clicked the button!');
+// })
+
+// dogButton.addEventListener('click',() => {
+//   console.log('clicked the button!');
+// })
+// dinoButton.addEventListener('click',() => {
+//   console.log('clicked the button!');
+// })
+
+// let catButton = document.getElementById("cat-btn");
+// let dogButton = document.getElementById("dog-btn");
+// let dinoButton = document.getElementById("dino-btn");
+
+// const grabAnimal = (e) => {
+//   return `${catButton.animals.type}`;
+// }
+
+// Function to start Application 
+const startApp = () => {
+cardsToDom(pets);
+}
+
+startApp()
