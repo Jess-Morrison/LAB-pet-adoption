@@ -237,23 +237,41 @@ const pets = [
      </div> `; 
     
  renderToDom('#content',domString);
+    }
+   }
 
+//  Make buttons dynamic
 
-//  Filter buttons 
-
-const filterButtons = [
+const animalBtn = [
   {
-  catButton: "cat-btn"},
+  catButton: "cat-btn.pets.type.cat"},
   {
   dogButton:"dog-btn"},
   {
   dinoButton:"dino-btn"
 }]
 
-
-    
-}
+const elButtons = (varName)=>{ 
+  for(buttons of animalBtn) {
+document.querySelector('#buttons').addEventListener('click', (e) => {
+  
+const targId = console.log("Button clicked", e.target.id);
+// console.log( `${cat-btn.pets.type}`);
+})
+console.log(elButtons)
+  // } if ( cardsToDom === animals.type.cat ) {
+  //   console.log (renderToDom('#content',pets.type.cat))
   }
+  };
+
+  // Filter buttons
+  
+  // const filterCat = (pets) => {
+  //   return pets.type === "cat"
+  //   document.querySelector()
+  // }
+
+  
 
   // console.log (myFunction())
 
@@ -280,6 +298,7 @@ const filterButtons = [
 // Function to start Application 
 const startApp = () => {
 cardsToDom(pets);
+elButtons();
 }
 
 startApp()
