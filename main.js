@@ -244,7 +244,7 @@ const pets = [
 
 const animalBtn = [
   {
-  catButton: "cat-btn.pets.type"},
+  catButton: "cat-btn.pets.type.cat"},
   {
   dogButton:"dog-btn"},
   {
@@ -254,10 +254,13 @@ const animalBtn = [
 const elButtons = (varName)=>{ 
   for(buttons of animalBtn) {
 document.querySelector('#buttons').addEventListener('click', (e) => {
-  return 
-console.log("Button clicked", e.target.id);
+  
+const targId = console.log("Button clicked", e.target.id);
 // console.log( `${cat-btn.pets.type}`);
 })
+console.log(elButtons)
+  // } if ( cardsToDom === animals.type.cat ) {
+  //   console.log (renderToDom('#content',pets.type.cat))
   }
   };
 
