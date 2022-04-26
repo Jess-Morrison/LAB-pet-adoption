@@ -269,36 +269,110 @@ const cardsToDom = (array) => {
   }
 };
 
+// Add submit form/ Modal
+const animalBtnModal = () => {
+  const domString = `<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add pet 
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="Help a pet find a home!" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form>
+      <div class="form-floating mb-3">
+        <input class="form-control form-control-lg" type="text" placeholder="Pet Image" id="image" aria-label="image" required>
+        <label for="petImg">Image (Add a cute pic): </label>
+      </div>
+  
+      <div class="form-floating mb-3">
+        <input class="form-control form-control-lg" type="text" placeholder="Name" id="name" aria-label="name" required>
+        <label for="name">Name:</label>
+      </div>
+
+      <div class="form-floating mb-3">
+      <input class="form-control form-control-lg" type="text" placeholder="Color" id="color" aria-label="color" required>
+      <label for="color">Color:</label>
+    </div>
+     <div class="form-floating mb-3">
+        <input class="form-control form-control-lg" type="text" placeholder="SS" id="specialSkill" aria-label="specialSkill" required>
+        <label for="ss">Special Skill:</label>
+      </div>
+      <div class="form-floating mb-3">
+      <input class="form-control form-control-lg" type="text" placeholder="Type" id="type" aria-label="type" required>
+      <label for="type">Type of pet:</label>
+    </div>
+    
+      </div>
+      <div class="modal-footer">
+        <button type="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>`;
+
+  renderToDom("#modalContainer", domString);
+};
+
+// Event listeners
 const elButtons = () => {
   document.querySelector("#buttons").addEventListener("click", (e) => {
     if (e.target.id === "cat") {
       const cats = pets.filter((pet) => pet.type === "cat");
-      cardsToDom(cats)
+      cardsToDom(cats);
     }
 
     if (e.target.id === "dog") {
-      const dogs = pets.filter((pet) => pet.type ==="dog");
-      cardsToDom(dogs)
+      const dogs = pets.filter((pet) => pet.type === "dog");
+      cardsToDom(dogs);
     }
     if (e.target.id === "dino") {
-      const dinos = pets.filter((pet) => pet.type === "dino")
-      cardsToDom(dinos)
+      const dinos = pets.filter((pet) => pet.type === "dino");
+      cardsToDom(dinos);
     }
     if (e.target.id === "all") {
-      const all = pets.filter((pet) => pet.type !== " ")
-      cardsToDom(all) }
+      const all = pets.filter((pet) => pet.type !== " ");
+      cardsToDom(all);
+    }
   });
-
-
 };
 
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  // grab the values from the form inputs and create an object
+  // push that object to the data array
+  // rerender cards using the cardsOnDom function and pass it the updated data array
+  const newPet = {
+    name: document.querySelector("#name").value,
+    color: document.querySelector("#color").value,
+    specialSkill: document.querySelector("#specialSkill").value,
+    type: document.querySelector("#type").value,
+    imageUrl: document.querySelector("#image").value
+    
+  };
+  
+  pets.push(newPet);
+  cardsToDom(pets);
+  // Close modal and reset form
+  formModal.hide();
+  form.reset();
+});
 
 
 // Function to start Application
 const startApp = () => {
   cardsToDom(pets);
-  elButtons();
+  animalBtnModal();
+  elButtons(); //always put this last
 };
 
 startApp();
