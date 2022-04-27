@@ -263,8 +263,8 @@ const cardsToDom = (array) => {
         
        </div>
        <footer>${animals.type}</footer>
-     </div> `;
-
+     </div> ;
+     <button class="btn btn-danger" id="delete--${animals.name}">Delete</button>`;
     }
     renderToDom("#content", domString);
 };
@@ -308,19 +308,26 @@ const animalBtnModal = () => {
       <input class="form-control form-control-lg" type="text" placeholder="Type" id="type" aria-label="type" required>
       <label for="type">Type of pet:</label>
     </div>
+    
+    <button type="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="submit" value="submit" id="button" class="btn btn-primary">Save changes</button>
+    
+    
     </div>
-    
-     <button type="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <button type="submit" id="button"class="btn btn-primary">Save changes</button>
-    
     </form>
-      
     </div>
   </div>
 </div>`;
 
   renderToDom("#modalContainer", domString);
 };
+
+// // Delete Buttons
+// const delButton = ()=> {
+//  let domString = `<button type="delete" id= "delete" class='delete-btn'>Delete</button>`;
+// };
+// renderToDom("#content", domString);
+
 
 // Event listeners
 const elButtons = () => {
@@ -343,37 +350,43 @@ const elButtons = () => {
       const all = pets.filter((pet) => pet.type !== " ");
       cardsToDom(all);
     }
-    
+    if (e.target.id.includes('delete')) {
+      console.log("Delete Button Pressed")
+      const delete = pets.parse
+    }
   });
 
-
-const form = document.querySelector('form');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  // grab the values from the form inputs and create an object
-  // push that object to the data array
-  // rerender cards using the cardsOnDom function and pass it the updated data array
-  const newPet = {
-    name: document.querySelector("#name").value,
-    color: document.querySelector("#color").value,
-    specialSkill: document.querySelector("#specialSkill").value,
-    type: document.querySelector("#type").value,
-    imageUrl: document.querySelector("#image").value
+  
+  
+  const form = document.querySelector('form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // grab the values from the form inputs and create an object
+    // push that object to the data array
+    // rerender cards using the cardsOnDom function and pass it the updated data array
+    const newPet = {
+      name: document.querySelector("#name").value,
+      color: document.querySelector("#color").value,
+      specialSkill: document.querySelector("#specialSkill").value,
+      type: document.querySelector("#type").value,
+      imageUrl: document.querySelector("#image").value
+      
+    };
     
+    pets.push(newPet);
+    cardsToDom(pets);
+    // Close modal and reset form
+    formModal.hide();
+    form.reset();
+  });
+  
 };
-console.log(newPet)
-  pets.push(newPet);
-  cardsToDom(pets);
-  // Close modal and reset form
-  formModal.hide();
-  form.reset();
-});
 
-};
 
 
 // Function to start Application
 const startApp = () => {
+  
   animalBtnModal();
   cardsToDom(pets);
   elButtons(); //always put this last
