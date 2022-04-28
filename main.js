@@ -261,10 +261,12 @@ const cardsToDom = (array) => {
          <div class="animal-color">${animals.color}</div>
          <p class="card-text">${animals.specialSkill}</p>
         
+         <button class="btn btn-danger" id="delete">Delete</button>
        </div>
+       <div>
        <footer>${animals.type}</footer>
-     </div> ;
-     <button class="btn btn-danger" id="delete--${animals.name}">Delete</button>`;
+     </div>`;
+     
     }
     renderToDom("#content", domString);
 };
@@ -354,17 +356,17 @@ const elButtons = () => {
       cardsToDom(all);
     }
     
+    document.querySelector("#content").addEventListener("click", (e) => {
       if (e.target.id){
-        const [method,id] = e.target.id.split("--");{
-          const index = pets.findIndex((taco) => taco.id == parseInt(id))
-        }
-      
-    }
-    if (e.target.id.includes('delete')) {
+        const [id] = e.target.id.split("--");
+          const index = pets.findIndex((taco) => taco.id === parseInt(id));
+        
+       
+    
+       if (e.target.id.includes("#delete")) {
       pets.splice(index, 1)
       cardsToDom(pets);
-
-      
+       }
     }
   });
 
@@ -392,8 +394,8 @@ const elButtons = () => {
     form.reset();
   });
   
-};
-
+});
+}
 
 
 // Function to start Application
