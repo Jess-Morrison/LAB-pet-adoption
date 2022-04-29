@@ -261,10 +261,10 @@ const cardsToDom = (array) => {
          <div class="animal-color">${animals.color}</div>
          <p class="card-text">${animals.specialSkill}</p>
         
-         <button class="btn btn-danger" id="delete">Delete</button>
-       </div>
-       <div>
-       <footer>${animals.type}</footer>
+         </div>
+         <div class= "footer">
+         <footer>${animals.type}</footer>
+         <button type="button" class="btn btn-danger" id="delete--${animals.id}">Delete</button>
      </div>`;
      
     }
@@ -355,20 +355,24 @@ const elButtons = () => {
       const all = pets.filter((pet) => pet.type !== " ");
       cardsToDom(all);
     }
+    });
+  
     
     document.querySelector("#content").addEventListener("click", (e) => {
       if (e.target.id){
-        const [id] = e.target.id.split("--");
-          const index = pets.findIndex((taco) => taco.id === parseInt(id));
+        const [method,id] = e.target.id.split("--");
+          const index = pets.findIndex((taco) => taco.id === id);
+          // console.log(id[1])
+          // console.log(method,id)
         
-       
     
        if (e.target.id.includes("#delete")) {
-      pets.splice(index, 1)
+      pets.splice(index, 1);
       cardsToDom(pets);
        }
-    }
-  });
+      }
+  
+    
 
   
   
@@ -386,17 +390,21 @@ const elButtons = () => {
       imageUrl: document.querySelector("#image").value
       
     };
+      
     
     pets.push(newPet);
     cardsToDom(pets);
     // Close modal and reset form
     formModal.hide();
     form.reset();
-  });
+       });
+    
+      });
+      
+};
+      
+    
   
-});
-}
-
 
 // Function to start Application
 const startApp = () => {
