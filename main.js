@@ -361,12 +361,12 @@ const elButtons = () => {
     document.querySelector("#content").addEventListener("click", (e) => {
       if (e.target.id){
         const [method,id] = e.target.id.split("--");
-          const index = pets.findIndex((taco) => taco.id === id);
+          const index = pets.findIndex((taco) => taco.id === Number(id));
           // console.log(id[1])
           // console.log(method,id)
         
     
-       if (e.target.id.includes("#delete")) {
+       if (e.target.id.includes('delete')) {
       pets.splice(index, 1);
       cardsToDom(pets);
        }
