@@ -10,6 +10,17 @@ body{
   border-color: blueviolet;
 } */
 
+h1{
+  color:white;
+  text-align:center;
+  text-decoration:underline ;
+  text-decoration-color: fuchsia;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto Slab', serif;
+  /* font-family: 'Square Peg'; */
+  
+}
+
 
 #buttons{
   text-align: center;
