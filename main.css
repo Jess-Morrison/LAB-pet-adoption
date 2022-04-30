@@ -1,13 +1,22 @@
 body{
   background-color: aqua;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  
 }
 
-.card{
-  justify-content: center;
+#buttons{
+  text-align: center;
+   margin: 10;
+
 }
+
+
 
 .animalCards{
   text-align: center;
+ ;
 }
 
 header{
