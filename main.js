@@ -264,8 +264,8 @@ const cardsToDom = (array) => {
         
          </div>
          <div class= "footer">
-         <footer>${animals.type}</footer>
-         <button  type="button" class="btn btn-danger" id="delete--${animals.id}">Delete</button>
+         <footer>${animals.type}  </footer>
+         <button style="background-color:hotpink" type="button" class="btn btn-danger" id="delete--${animals.id}">Delete</button>
      </div>`;
      
     }
