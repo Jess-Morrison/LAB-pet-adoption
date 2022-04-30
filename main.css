@@ -1,20 +1,83 @@
 body{
   background-color: aqua;
+ 
+  
 }
+
+/* #card{
+  border-style: groove;
+  border: 50px;
+  border-color: blueviolet;
+} */
+
+h1{
+  color:white;
+  text-align:center;
+  text-decoration:underline ;
+  text-decoration-color: fuchsia;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto Slab', serif;
+  /* font-family: 'Square Peg'; */
+  
+}
+
+
+#buttons{
+  text-align: center;
+  
+}
+
+#cat{
+  margin: 10px;
+  font-size: 30px;
+  border-radius: 50%;
+  color:white;
+}
+#dog{
+  margin: 10px;
+  font-size: 30px;
+  border-radius: 50%;
+  color:white;
+}
+#dino{
+  margin: 10px;
+  font-size: 30px;
+  border-radius: 50%;
+  color:white;
+}
+#all{
+  margin: 10px;
+  font-size: 30px;
+  border-radius: 50%;
+  color:white;
+}
+
 
 .card{
-  justify-content: center;
-}
-
-.animalCards{
+  
   text-align: center;
+  border-style: groove;
+  border-width: thick;
+  border-color: fuchsia;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
 }
 
-header{
+/* header{
   border-style: inset;
+  
+} */
+h2{
+  text-decoration: underline;
+  border-style: inset;
+  border-color: hotpink;
+  text-decoration-color: rgb(189, 87, 138);
 }
+
 .card-img-top{
   border-style:outset;
+ 
 }
 
 footer{

@@ -252,8 +252,9 @@ const renderToDom = (divId, textToDom) => {
 const cardsToDom = (array) => {
   let domString = " ";
   for (const animals of array) {
-    domString += `<div class="card" style="width: 18rem;">
-        <header>
+    domString += 
+    `<div class="card" style="width: 18rem;">
+    <header>
         <h2>${animals.name}</h2>
        </header>
        <img src="${animals.imageUrl}" class="card-img-top" alt="Photos of Animals"/>
@@ -263,8 +264,8 @@ const cardsToDom = (array) => {
         
          </div>
          <div class= "footer">
-         <footer>${animals.type}</footer>
-         <button type="button" class="btn btn-danger" id="delete--${animals.id}">Delete</button>
+         <footer>${animals.type}  </footer>
+         <button style="background-color:hotpink" type="button" class="btn btn-danger" id="delete--${animals.id}">Delete</button>
      </div>`;
      
     }
@@ -274,7 +275,7 @@ const cardsToDom = (array) => {
 // Add submit form/ Modal
 const animalBtnModal = () => {
   const domString = `
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button style="background-color:fuchsia"  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add pet 
 </button>
 
