@@ -1,4 +1,12 @@
 const pets = [
+  // { id: 0,    
+  //   name: "",
+  //   color: "",
+  //   specialSkill: "",
+  //   type: "",
+  //   imageUrl:
+  //     "",
+  // },
   { id: 1,    
     name: "Dusty",
     color: "Green",
@@ -250,21 +258,34 @@ const renderToDom = (divId, textToDom) => {
 
 // Add cards to DOM
 const cardsToDom = (array) => {
-  let domString = " ";
+  let domString = "";
   for (const animals of array) {
-    domString += 
-    `<div class="card" style="width: 18rem;">
-    <header>
+     domString += //`<div class="card" style="width: 18rem;">
+    //  <img src="${animals.imageUrl}" class="card-img-top" alt="photo of pet">
+    //  <div class="card-body">
+    //    <h5 class="card-title">${animals.name}</h5>
+    //   <div class="animal-color">${animals.color}</div>
+    //     <p class="card-text">${animals.specialSkill}</p>
+    //     <footer>${animals.type}  </footer>
+    //    <button style="background-color:hotpink" type="button" class="btn btn-danger" id="delete--${animals.id}">Delete</button>
+    //  </div>`;
+   //  {   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+  //     <a href="#" class="btn btn-primary">Go somewhere</a>
+    //</div> }
+  // </div>
+  `
+  <div id="mainCard"  class="card" style="">
         <h2>${animals.name}</h2>
        </header>
-       <img src="${animals.imageUrl}" class="card-img-top" alt="Photos of Animals"/>
-       <div class="card-body">
-         <div class="animal-color">${animals.color}</div>
-         <p class="card-text">${animals.specialSkill}</p>
+       <img src="${animals.imageUrl}" id="card-img-top" class="card-img-top" alt="Photos of Animals"/>
+       <div id="card-body" class="card-body">
+         <div id"animal-color" class="animal-color">${animals.color}</div>
+         <p id"card-text" class="card-text">${animals.specialSkill}</p>
         
          </div>
-         <div class= "footer">
-         <footer>${animals.type}  </footer>
+         <div id"footer" class= "footer">
+         <footer>${animals.type} </footer>
          <button style="background-color:hotpink" type="button" class="btn btn-danger" id="delete--${animals.id}">Delete</button>
      </div>`;
      
@@ -359,7 +380,7 @@ const elButtons = () => {
     });
   
     
-    document.querySelector("#content").addEventListener("click", (e) => {
+    document.querySelector("#event").addEventListener("click", (e) => {
       if (e.target.id){
         const [method,id] = e.target.id.split("--");
           const index = pets.findIndex((taco) => taco.id === Number(id));
